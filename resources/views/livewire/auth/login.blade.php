@@ -6,21 +6,35 @@
             <p class="text-center small">Enter your username & password to login</p>
         </div>
 
-        <form class="row g-3 needs-validation" novalidate>
+        @if (session()->has('error'))
+            <div class="invalid-feedback">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <form wire:submit="login" class="row g-3 needs-validation" novalidate>
 
             <div class="col-12">
                 <label for="yourUsername" class="form-label">Username</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" name="username" class="form-control" id="yourUsername" required>
-                    <div class="invalid-feedback">Please enter your username.</div>
+                    <input type="text" name="username" class="form-control @error('email') is-invalid @enderror"
+                        wire:model="email" id="email" required>
+                    <div class="invalid-feedback"> @error('email')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
             </div>
 
             <div class="col-12">
                 <label for="yourPassword" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="yourPassword" required>
-                <div class="invalid-feedback">Please enter your password!</div>
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                    wire:model="password" id="password" required>
+                <div class="invalid-feedback"> @error('password')
+                        {{ $message }}
+                    @enderror
+                </div>
             </div>
 
             <div class="col-12">
