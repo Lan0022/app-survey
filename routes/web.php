@@ -5,6 +5,7 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Livewire\CalonPenerima;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -26,3 +27,7 @@ Route::get('/logout', function (Request $request) {
 Route::get('/dashboard', Dashboard::class)
     ->middleware('auth')
     ->name('dashboard');
+
+Route::get('calon-penerima', CalonPenerima::class)
+    ->middleware('auth')
+    ->name('calon-penerima');

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>Survey App</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -87,6 +87,27 @@
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#master-data-nav" data-bs-toggle="collapse"
+                    href="#">
+                    <i class="bi bi-journal-text"></i><span>Data Survey</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="master-data-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <!-- Tambahkan link ini -->
+                        <a href="{{ route('calon-penerima') }}"
+                            class="{{ request()->routeIs('calon-penerima') ? 'active' : '' }}">
+                            <i class="bi bi-circle"></i><span>Calon Penerima</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="bi bi-circle"></i><span>Data Lainnya...</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Forms Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
